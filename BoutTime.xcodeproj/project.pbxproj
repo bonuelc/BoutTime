@@ -12,6 +12,7 @@
 		859C11021D2894A7002AB549 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 859C11001D2894A7002AB549 /* Main.storyboard */; };
 		859C11041D2894A7002AB549 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 859C11031D2894A7002AB549 /* Assets.xcassets */; };
 		859C11071D2894A7002AB549 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 859C11051D2894A7002AB549 /* LaunchScreen.storyboard */; };
+		85F315EE1D2A14A6006099E9 /* splash_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 85F315ED1D2A14A6006099E9 /* splash_screen.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		859C11031D2894A7002AB549 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		859C11061D2894A7002AB549 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		859C11081D2894A7002AB549 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85F315ED1D2A14A6006099E9 /* splash_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash_screen.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		859C10FB1D2894A7002AB549 /* BoutTime */ = {
 			isa = PBXGroup;
 			children = (
+				85F315ED1D2A14A6006099E9 /* splash_screen.png */,
 				859C10FC1D2894A7002AB549 /* AppDelegate.swift */,
 				859C10FE1D2894A7002AB549 /* ViewController.swift */,
 				859C11001D2894A7002AB549 /* Main.storyboard */,
@@ -124,6 +127,7 @@
 			files = (
 				859C11071D2894A7002AB549 /* LaunchScreen.storyboard in Resources */,
 				859C11041D2894A7002AB549 /* Assets.xcassets in Resources */,
+				85F315EE1D2A14A6006099E9 /* splash_screen.png in Resources */,
 				859C11021D2894A7002AB549 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,6 +292,7 @@
 				859C110D1D2894A7002AB549 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

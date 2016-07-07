@@ -6,6 +6,8 @@
 //  Copyright © 2016 Christopher Bonuel. All rights reserved.
 //
 
+import GameKit
+
 struct Event {
     let eventString: String
     let year: Int
@@ -65,4 +67,17 @@ struct HistoricalEventModel {
         // https://en.wikipedia.org/wiki/Earth_Day
         Event(eventString: "The first Earth Day is observed", year: 1970, month: 4)
     ]
+    
+    func fourRandomEvents() -> [Event] {
+        var indices: [Int] = []
+        indices.append(GKRandomSource.sharedRandom().nextIntWithUpperBound(events.count))
+        while indices.count < 4 {
+            let newIndex = GKRandomSource.sharedRandom().nextIntWithUpperBound(events.count)
+            if !(indices.contains(newIndex)) { // ensure no duplicates
+                indices.append(newIndex)
+            }
+        }
+        
+        return (0..<4).map({events[indices[$0]]})
+    }
 }

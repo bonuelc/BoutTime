@@ -9,10 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var historicalEventModel = HistoricalEventModel()
+    var events: [Event] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        events = historicalEventModel.fourRandomEvents()
     }
 
     override func didReceiveMemoryWarning() {

@@ -34,6 +34,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         events = historicalEventModel.fourRandomEvents()
+        updateEventLabels()
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,5 +51,11 @@ class ViewController: UIViewController {
     @IBAction func nextButtonTapped(sender: UIButton) {
     }
 
+    func updateEventLabels() {
+        eventLabel0.text = events[0].eventString
+        eventLabel1.text = events[1].eventString
+        eventLabel2.text = events[2].eventString
+        eventLabel3.text = events[3].eventString
+    }
 }
 

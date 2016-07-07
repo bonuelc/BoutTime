@@ -62,5 +62,11 @@ class ViewController: UIViewController {
     func getNewEvents() {
         events = historicalEventModel.fourRandomEvents()
     }
+    
+    func rearrangeEvents(indexA: Int, indexB: Int) {
+        let temp: Event = events[indexA]
+        events[indexA] = events[indexB]
+        events[indexB] = temp
+    }
 }
 

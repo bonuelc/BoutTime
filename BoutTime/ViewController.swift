@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        events = historicalEventModel.fourRandomEvents()
+        getNewEvents()
         updateEventLabels()
     }
 
@@ -56,6 +56,11 @@ class ViewController: UIViewController {
         eventLabel1.text = events[1].eventString
         eventLabel2.text = events[2].eventString
         eventLabel3.text = events[3].eventString
+    }
+    
+    // MARK: Helper functions
+    func getNewEvents() {
+        events = historicalEventModel.fourRandomEvents()
     }
 }
 

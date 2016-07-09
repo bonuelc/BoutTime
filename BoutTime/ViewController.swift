@@ -43,9 +43,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func downButtonTapped(sender: UIButton) {
+        rearrangeEvents(sender.tag, indexB: sender.tag + 1)
+        updateEventLabels()
     }
     
     @IBAction func upButtonTapped(sender: UIButton) {
+        rearrangeEvents(sender.tag, indexB: sender.tag - 1)
+        updateEventLabels()
     }
 
     @IBAction func nextButtonTapped(sender: UIButton) {

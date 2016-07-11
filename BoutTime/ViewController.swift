@@ -10,8 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var historicalEventModel = HistoricalEventModel()
-    var events: [Event] = []
+    var events = HistoricalEventModel()
 
     @IBOutlet weak var eventLabel0: UILabel!
     @IBOutlet weak var eventLabel1: UILabel!
@@ -33,7 +32,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        getNewEvents()
+        events.getNewEvents()
         updateEventLabels()
     }
 
@@ -43,12 +42,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func downButtonTapped(sender: UIButton) {
-        rearrangeEvents(sender.tag, indexB: sender.tag + 1)
+        events.rearrangeEvents(sender.tag, indexB: sender.tag + 1)
         updateEventLabels()
     }
     
     @IBAction func upButtonTapped(sender: UIButton) {
-        rearrangeEvents(sender.tag, indexB: sender.tag - 1)
+        events.rearrangeEvents(sender.tag, indexB: sender.tag - 1)
         updateEventLabels()
     }
 
@@ -60,17 +59,6 @@ class ViewController: UIViewController {
         eventLabel1.text = events[1].eventString
         eventLabel2.text = events[2].eventString
         eventLabel3.text = events[3].eventString
-    }
-    
-    // MARK: Helper functions
-    func getNewEvents() {
-        events = historicalEventModel.fourRandomEvents()
-    }
-    
-    func rearrangeEvents(indexA: Int, indexB: Int) {
-        let temp: Event = events[indexA]
-        events[indexA] = events[indexB]
-        events[indexB] = temp
     }
 }
 

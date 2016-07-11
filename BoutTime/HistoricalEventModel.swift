@@ -15,7 +15,7 @@ struct Event {
 }
 
 struct HistoricalEventModel {
-    var events: [Event] = [
+    let eventCollection: [Event] = [
         // https://en.wikipedia.org/wiki/History_of_Python
         Event(eventString: "Python 1.0 release", year: 1994, month: 1),
         // https://en.wikipedia.org/wiki/Swift_(programming_language)
@@ -68,16 +68,32 @@ struct HistoricalEventModel {
         Event(eventString: "The first Earth Day is observed", year: 1970, month: 4)
     ]
     
-    func fourRandomEvents() -> [Event] {
+    var events: [Event] = []
+    
+    init() {
+        getNewEvents()
+    }
+    
+    subscript(index: Int) -> Event {
+        return events[index]
+    }
+    
+    mutating func rearrangeEvents(indexA: Int, indexB: Int) {
+        let temp: Event = events[indexA]
+        events[indexA] = events[indexB]
+        events[indexB] = temp
+    }
+    
+    mutating func getNewEvents() {
         var indices: [Int] = []
-        indices.append(GKRandomSource.sharedRandom().nextIntWithUpperBound(events.count))
+        indices.append(GKRandomSource.sharedRandom().nextIntWithUpperBound(eventCollection.count))
         while indices.count < 4 {
-            let newIndex = GKRandomSource.sharedRandom().nextIntWithUpperBound(events.count)
+            let newIndex = GKRandomSource.sharedRandom().nextIntWithUpperBound(eventCollection.count)
             if !(indices.contains(newIndex)) { // ensure no duplicates
                 indices.append(newIndex)
             }
         }
-        
-        return (0..<4).map({events[indices[$0]]})
+
+        events = (0..<4).map({eventCollection[indices[$0]]})
     }
 }

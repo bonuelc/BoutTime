@@ -6,11 +6,15 @@
 //  Copyright © 2016 Christopher Bonuel. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 class ViewController: UIViewController {
     
     var events = HistoricalEventModel()
+    var score: Int = 0
+    var numQuestionsAnswered: Int = 0
+    let numQuestionsInRound: Int = 6
 
     @IBOutlet weak var eventLabel0: UILabel!
     @IBOutlet weak var eventLabel1: UILabel!
@@ -59,6 +63,40 @@ class ViewController: UIViewController {
         eventLabel1.text = events[1].description
         eventLabel2.text = events[2].description
         eventLabel3.text = events[3].description
+    }
+    
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        if motion == .MotionShake {
+            checkAnswer()
+        }
+    }
+    
+    func checkAnswer() {
+        
+        numQuestionsAnswered += 1
+        
+        timerLabel.hidden = true
+        nextButton.hidden = false
+        
+        enableArrowButtons(false)
+        
+        if events.inOrder() {
+            score += 1
+            nextButton.setImage(UIImage(named: "next_round_success.png"), forState: .Normal)
+            nextButton.setImage(UIImage(named: "next_round_success.png"), forState: .Highlighted)
+        } else {
+            nextButton.setImage(UIImage(named: "next_round_fail.png"), forState: .Normal)
+            nextButton.setImage(UIImage(named: "next_round_fail.png"), forState: .Highlighted)
+        }
+    }
+    
+    func enableArrowButtons(enable: Bool = true) {
+        downButton0.enabled = enable
+        downButton1.enabled = enable
+        downButton2.enabled = enable
+        upButton1.enabled = enable
+        upButton2.enabled = enable
+        upButton3.enabled = enable
     }
 }
 

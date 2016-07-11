@@ -197,6 +197,7 @@
                         <outlet property="upButton1" destination="oe2-ek-aw8" id="uL0-ME-IhQ"/>
                         <outlet property="upButton2" destination="Oe0-Jq-d4i" id="mCT-VC-nyl"/>
                         <outlet property="upButton3" destination="dD3-w3-vhe" id="qCZ-Ir-noG"/>
+                        <segue destination="qao-fy-mwI" kind="presentation" identifier="gameEnd" id="gyL-CQ-tz3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -222,7 +223,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJW-C0-0l3">
-                                <rect key="frame" x="249" y="236" width="102" height="26"/>
+                                <rect key="frame" x="249" y="198" width="102" height="64"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="textColor" red="0.1647058824" green="0.48627450979999998" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -234,6 +235,9 @@
                                     <constraint firstAttribute="width" secondItem="n9v-K7-Ccb" secondAttribute="height" multiplier="225:71" id="ggR-hc-u1z"/>
                                 </constraints>
                                 <state key="normal" image="play_again.png"/>
+                                <connections>
+                                    <action selector="playAgainTapped" destination="qao-fy-mwI" eventType="touchUpInside" id="Mle-89-OwC"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0078431372550000003" green="0.1176470588" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
@@ -244,6 +248,7 @@
                             <constraint firstItem="2Ek-TX-ByS" firstAttribute="centerY" secondItem="XgN-6O-vYq" secondAttribute="centerY" id="gxp-PK-wBF"/>
                             <constraint firstItem="n9v-K7-Ccb" firstAttribute="centerX" secondItem="XgN-6O-vYq" secondAttribute="centerX" id="h9G-PI-jIe"/>
                             <constraint firstItem="n9v-K7-Ccb" firstAttribute="top" secondItem="2Ek-TX-ByS" secondAttribute="bottom" constant="40" id="kto-BF-ff1"/>
+                            <constraint firstItem="hJW-C0-0l3" firstAttribute="top" secondItem="GPo-b5-I6W" secondAttribute="bottom" constant="178" id="oHt-cR-wJB"/>
                             <constraint firstItem="2Ek-TX-ByS" firstAttribute="top" secondItem="hJW-C0-0l3" secondAttribute="bottom" constant="8" id="qj6-IR-t2c"/>
                         </constraints>
                         <variation key="default">
@@ -252,6 +257,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="scoreLabel" destination="2Ek-TX-ByS" id="vDI-YO-X73"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ldl-a7-Vhn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

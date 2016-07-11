@@ -56,6 +56,24 @@ class ViewController: UIViewController {
     }
 
     @IBAction func nextButtonTapped(sender: UIButton) {
+        enableArrowButtons()
+        
+        if numQuestionsAnswered == numQuestionsInRound {
+            performSegueWithIdentifier("gameEnd", sender: nil)
+        } else {
+            events.getNewEvents()
+            updateEventLabels()
+            
+            nextButton.hidden = true
+            timerLabel.hidden = false
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let resultsVC = segue.destinationViewController as? ResultsViewController {
+            resultsVC.score = score
+            resultsVC.numQuestionsInRound = numQuestionsInRound
+        }
     }
 
     func updateEventLabels() {

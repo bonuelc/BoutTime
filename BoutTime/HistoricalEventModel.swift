@@ -8,7 +8,19 @@
 
 import GameKit
 
-struct Event {
+protocol Equatable {}
+protocol Comparable {}
+
+func ==(lhs: Event, rhs: Event) -> Bool {
+    return lhs.year == rhs.year && lhs.month == rhs.month
+}
+
+func <(lhs: Event, rhs: Event) -> Bool {
+    return lhs.year < rhs.year || (lhs.year == rhs.year && lhs.month < rhs.month)
+}
+
+struct Event: Equatable, Comparable {
+    
     let description: String
     let year: Int
     let month: Int
@@ -95,5 +107,9 @@ struct HistoricalEventModel {
         }
 
         events = (0..<4).map({eventCollection[indices[$0]]})
+    }
+    
+    func inOrder() -> Bool {
+        return events[0] < events[1] && events[1] < events[2] && events[2] < events[3]
     }
 }

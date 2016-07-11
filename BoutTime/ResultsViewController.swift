@@ -9,6 +9,11 @@
 import UIKit
 
 class ResultsViewController: UIViewController {
+    
+    var score: Int!
+    var numQuestionsInRound: Int!
+    
+    @IBOutlet weak var scoreLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,4 +26,6 @@ class ResultsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func playAgainTapped() {
+    }
 }

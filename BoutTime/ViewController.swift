@@ -35,16 +35,27 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        setupArrowImages()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        resetStats()
         
         events.getNewEvents()
         updateEventLabels()
         
-        setupArrowImages()
+        nextButton.hidden = true
+        timerLabel.hidden = false
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func resetStats() {
+        numQuestionsAnswered = 0
+        score = 0
     }
     
     @IBAction func downButtonTapped(sender: UIButton) {

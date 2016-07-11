@@ -38,6 +38,8 @@ class ViewController: UIViewController {
         
         events.getNewEvents()
         updateEventLabels()
+        
+        setupArrowImages()
     }
 
     override func didReceiveMemoryWarning() {
@@ -115,6 +117,15 @@ class ViewController: UIViewController {
         upButton1.enabled = enable
         upButton2.enabled = enable
         upButton3.enabled = enable
+    }
+    
+    func setupArrowImages() {
+        downButton0.setImage(UIImage(named: "down_full_selected.png"), forState: .Highlighted)
+        downButton1.setImage(UIImage(named: "down_half_selected.png"), forState: .Highlighted)
+        downButton2.setImage(UIImage(named: "down_half_selected.png"), forState: .Highlighted)
+        upButton1.setImage(UIImage(named: "up_half_selected.png"), forState: .Highlighted)
+        upButton2.setImage(UIImage(named: "up_half_selected.png"), forState: .Highlighted)
+        upButton3.setImage(UIImage(named: "up_full_selected.png"), forState: .Highlighted)
     }
 }
 

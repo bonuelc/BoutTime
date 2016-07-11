@@ -72,7 +72,7 @@
                                     <action selector="downButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JJ5-fu-iJf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oe2-ek-aw8">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oe2-ek-aw8">
                                 <rect key="frame" x="529" y="140" width="51" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="oe2-ek-aw8" secondAttribute="height" multiplier="212:229" id="BmG-sx-Lmx"/>
@@ -82,7 +82,7 @@
                                     <action selector="upButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wcE-Vb-g4V"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQi-6s-P8g">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQi-6s-P8g">
                                 <rect key="frame" x="529" y="195" width="51" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="JQi-6s-P8g" secondAttribute="height" multiplier="212:229" id="6Uw-9R-7Y4"/>
@@ -92,7 +92,7 @@
                                     <action selector="downButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZVG-Nb-m28"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oe0-Jq-d4i">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oe0-Jq-d4i">
                                 <rect key="frame" x="529" y="260" width="51" height="54"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Oe0-Jq-d4i" secondAttribute="height" multiplier="212:229" id="qjq-af-uWe"/>
@@ -102,7 +102,7 @@
                                     <action selector="upButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SHu-Vg-t7r"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="miB-zs-XNT">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="miB-zs-XNT">
                                 <rect key="frame" x="529" y="314" width="51" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="miB-zs-XNT" secondAttribute="height" multiplier="212:229" id="2tC-xe-ABg"/>
@@ -112,7 +112,7 @@
                                     <action selector="downButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vIA-HF-dQK"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dD3-w3-vhe">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dD3-w3-vhe">
                                 <rect key="frame" x="529" y="379" width="51" height="110"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="dD3-w3-vhe" secondAttribute="height" multiplier="212:457" id="U3y-yZ-Fcu"/>

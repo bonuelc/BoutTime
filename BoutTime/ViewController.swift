@@ -116,10 +116,13 @@ class ViewController: UIViewController {
     }
     
     func tick() {
-        secondsLeft -= 1
+        let minutes: Int = secondsLeft / 60
+        let seconds: Int = secondsLeft % 60
+        timerLabel.text = "\(minutes):" + String(format: "%02d", seconds)
         if secondsLeft == 0 {
             checkAnswer()
         }
+        secondsLeft -= 1
     }
     
     func checkAnswer() {

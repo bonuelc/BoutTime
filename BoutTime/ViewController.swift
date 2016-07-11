@@ -15,6 +15,9 @@ class ViewController: UIViewController {
     var score: Int = 0
     var numQuestionsAnswered: Int = 0
     let numQuestionsInRound: Int = 6
+    var timer = NSTimer()
+    let secondsPerQuestion: Double = 60
+    var secondsLeft: Int = 0
 
     @IBOutlet weak var eventLabel0: UILabel!
     @IBOutlet weak var eventLabel1: UILabel!
@@ -46,6 +49,8 @@ class ViewController: UIViewController {
         
         nextButton.hidden = true
         timerLabel.hidden = false
+        
+        startTimer()
     }
 
     override func didReceiveMemoryWarning() {
@@ -79,6 +84,8 @@ class ViewController: UIViewController {
             
             nextButton.hidden = true
             timerLabel.hidden = false
+            
+            startTimer()
         }
     }
     
@@ -87,6 +94,12 @@ class ViewController: UIViewController {
             resultsVC.score = score
             resultsVC.numQuestionsInRound = numQuestionsInRound
         }
+    }
+    
+    func startTimer() {
+        secondsLeft = Int(secondsPerQuestion)
+        tick() // start and show the new timer right away
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.tick), userInfo: nil, repeats: true)
     }
 
     func updateEventLabels() {
@@ -102,7 +115,16 @@ class ViewController: UIViewController {
         }
     }
     
+    func tick() {
+        secondsLeft -= 1
+        if secondsLeft == 0 {
+            checkAnswer()
+        }
+    }
+    
     func checkAnswer() {
+        
+        timer.invalidate()
         
         numQuestionsAnswered += 1
         

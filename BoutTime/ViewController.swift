@@ -55,10 +55,10 @@ class ViewController: UIViewController {
     }
 
     func updateEventLabels() {
-        eventLabel0.text = events[0].eventString
-        eventLabel1.text = events[1].eventString
-        eventLabel2.text = events[2].eventString
-        eventLabel3.text = events[3].eventString
+        eventLabel0.text = events[0].description
+        eventLabel1.text = events[1].description
+        eventLabel2.text = events[2].description
+        eventLabel3.text = events[3].description
     }
 }
 

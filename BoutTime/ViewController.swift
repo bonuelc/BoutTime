@@ -168,6 +168,7 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate {
         upButton3.setImage(UIImage(named: "up_full_selected.png"), forState: .Highlighted)
     }
     
+    // enable during rounds, disable after rounds
     func enableArrowButtons(enable: Bool = true) {
         downButton0.enabled = enable
         downButton1.enabled = enable
@@ -177,6 +178,7 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate {
         upButton3.enabled = enable
     }
     
+    // enable after rounds, disable during rounds
     func enableLinkButtons(enable: Bool = true) {
         eventLinkButton0.enabled = enable
         eventLinkButton1.enabled = enable

@@ -1,5 +1,5 @@
 //
-//  QuizViewController.swift
+//  ViewController.swift
 //  BoutTime
 //
 //  Created by Christopher Bonuel on 7/2/16.
@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SafariServices
 
-class QuizViewController: UIViewController, SFSafariViewControllerDelegate {
+class ViewController: UIViewController, SFSafariViewControllerDelegate {
     
     var events = HistoricalEventModel()
     var score: Int = 0
@@ -45,6 +45,11 @@ class QuizViewController: UIViewController, SFSafariViewControllerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         setupArrowImages()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        resetStats()
+        
         startNextRound()
     }
 
@@ -91,14 +96,13 @@ class QuizViewController: UIViewController, SFSafariViewControllerDelegate {
         if let resultsVC = segue.destinationViewController as? ResultsViewController {
             resultsVC.score = score
             resultsVC.numQuestionsInRound = numQuestionsInRound
-            resultsVC.delegate = self
         }
     }
     
     func startTimer() {
         secondsLeft = Int(secondsPerQuestion)
         tick() // start and show the new timer right away
-        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(QuizViewController.tick), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.tick), userInfo: nil, repeats: true)
     }
     
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {

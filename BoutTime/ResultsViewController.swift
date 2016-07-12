@@ -12,6 +12,7 @@ class ResultsViewController: UIViewController {
     
     var score: Int!
     var numQuestionsInRound: Int!
+    var delegate: QuizViewController!
     
     @IBOutlet weak var scoreLabel: UILabel!
 
@@ -28,6 +29,8 @@ class ResultsViewController: UIViewController {
     }
 
     @IBAction func playAgainTapped() {
-        dismissViewControllerAnimated(true, completion: nil)
+        delegate.dismissViewControllerAnimated(true, completion: nil)
+        delegate.resetStats()
+        delegate.startNextRound()
     }
 }

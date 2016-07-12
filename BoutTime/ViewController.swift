@@ -74,6 +74,9 @@ class ViewController: UIViewController {
     }
 
     @IBAction func nextButtonTapped(sender: UIButton) {
+        
+        bottomInfoLabel.text = "Shake to complete"
+        
         enableArrowButtons()
         
         if numQuestionsAnswered == numQuestionsInRound {
@@ -126,6 +129,8 @@ class ViewController: UIViewController {
     }
     
     func checkAnswer() {
+        
+        bottomInfoLabel.text = "Tap events to learn more"
         
         timer.invalidate()
         

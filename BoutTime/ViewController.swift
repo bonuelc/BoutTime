@@ -10,6 +10,10 @@ import Foundation
 import UIKit
 import SafariServices
 
+protocol GameType {
+    func startNewGame()
+}
+
 class ViewController: UIViewController, SFSafariViewControllerDelegate {
     
     var events = HistoricalEventModel()

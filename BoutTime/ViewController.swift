@@ -166,5 +166,8 @@ class ViewController: UIViewController {
         upButton2.setImage(UIImage(named: "up_half_selected.png"), forState: .Highlighted)
         upButton3.setImage(UIImage(named: "up_full_selected.png"), forState: .Highlighted)
     }
+    
+    @IBAction func eventLinkTapped(sender: UIButton) {
+    }
 }
 

@@ -53,11 +53,6 @@ class QuizViewController: UIViewController, SFSafariViewControllerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func resetStats() {
-        numQuestionsAnswered = 0
-        score = 0
-    }
-    
     @IBAction func downButtonTapped(sender: UIButton) {
         events.rearrangeEvents(sender.tag, indexB: sender.tag + 1)
         updateEventLabels()
@@ -105,13 +100,6 @@ class QuizViewController: UIViewController, SFSafariViewControllerDelegate {
         tick() // start and show the new timer right away
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(QuizViewController.tick), userInfo: nil, repeats: true)
     }
-
-    func updateEventLabels() {
-        eventLabel0.text = events[0].description
-        eventLabel1.text = events[1].description
-        eventLabel2.text = events[2].description
-        eventLabel3.text = events[3].description
-    }
     
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
         if motion == .MotionShake {
@@ -153,6 +141,23 @@ class QuizViewController: UIViewController, SFSafariViewControllerDelegate {
         }
     }
     
+    @IBAction func eventLinkTapped(sender: UIButton) {
+        let website = events[sender.tag].website
+        let svc = SFSafariViewController(URL: NSURL(string: website)!)
+        svc.delegate = self
+        presentViewController(svc, animated: true, completion: nil)
+    }
+    
+    // MARK: Helper methods
+    func setupArrowImages() {
+        downButton0.setImage(UIImage(named: "down_full_selected.png"), forState: .Highlighted)
+        downButton1.setImage(UIImage(named: "down_half_selected.png"), forState: .Highlighted)
+        downButton2.setImage(UIImage(named: "down_half_selected.png"), forState: .Highlighted)
+        upButton1.setImage(UIImage(named: "up_half_selected.png"), forState: .Highlighted)
+        upButton2.setImage(UIImage(named: "up_half_selected.png"), forState: .Highlighted)
+        upButton3.setImage(UIImage(named: "up_full_selected.png"), forState: .Highlighted)
+    }
+    
     func enableArrowButtons(enable: Bool = true) {
         downButton0.enabled = enable
         downButton1.enabled = enable
@@ -169,20 +174,16 @@ class QuizViewController: UIViewController, SFSafariViewControllerDelegate {
         eventLinkButton3.enabled = enable
     }
     
-    func setupArrowImages() {
-        downButton0.setImage(UIImage(named: "down_full_selected.png"), forState: .Highlighted)
-        downButton1.setImage(UIImage(named: "down_half_selected.png"), forState: .Highlighted)
-        downButton2.setImage(UIImage(named: "down_half_selected.png"), forState: .Highlighted)
-        upButton1.setImage(UIImage(named: "up_half_selected.png"), forState: .Highlighted)
-        upButton2.setImage(UIImage(named: "up_half_selected.png"), forState: .Highlighted)
-        upButton3.setImage(UIImage(named: "up_full_selected.png"), forState: .Highlighted)
+    func updateEventLabels() {
+        eventLabel0.text = events[0].description
+        eventLabel1.text = events[1].description
+        eventLabel2.text = events[2].description
+        eventLabel3.text = events[3].description
     }
     
-    @IBAction func eventLinkTapped(sender: UIButton) {
-        let website = events[sender.tag].website
-        let svc = SFSafariViewController(URL: NSURL(string: website)!)
-        svc.delegate = self
-        presentViewController(svc, animated: true, completion: nil)
+    func resetStats() {
+        numQuestionsAnswered = 0
+        score = 0
     }
 }
 

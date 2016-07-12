@@ -195,3 +195,9 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate {
     }
 }
 
+extension ViewController: GameType {
+    func startNewGame() {
+        resetStats()
+        startNextRound()
+    }
+}

@@ -30,5 +30,6 @@ class ResultsViewController: UIViewController {
 
     @IBAction func playAgainTapped() {
         dismissViewControllerAnimated(true, completion: nil)
+        delegate.startNewGame()
     }
 }

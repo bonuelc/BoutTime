@@ -49,12 +49,7 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         setupArrowImages()
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        resetStats()
-        
-        startNextRound()
+        startNewGame()
     }
 
     override func didReceiveMemoryWarning() {

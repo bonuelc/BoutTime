@@ -8,8 +8,9 @@
 
 import Foundation
 import UIKit
+import SafariServices
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, SFSafariViewControllerDelegate {
     
     var events = HistoricalEventModel()
     var score: Int = 0
@@ -168,6 +169,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func eventLinkTapped(sender: UIButton) {
+        let website = events[sender.tag].website
+        let svc = SFSafariViewController(URL: NSURL(string: website)!)
+        svc.delegate = self
+        presentViewController(svc, animated: true, completion: nil)
     }
 }
 

@@ -44,13 +44,7 @@ class ViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         resetStats()
         
-        events.getNewEvents()
-        updateEventLabels()
-        
-        nextButton.hidden = true
-        timerLabel.hidden = false
-        
-        startTimer()
+        startNextRound()
     }
 
     override func didReceiveMemoryWarning() {
@@ -82,14 +76,18 @@ class ViewController: UIViewController {
         if numQuestionsAnswered == numQuestionsInRound {
             performSegueWithIdentifier("gameEnd", sender: nil)
         } else {
-            events.getNewEvents()
-            updateEventLabels()
-            
-            nextButton.hidden = true
-            timerLabel.hidden = false
-            
-            startTimer()
+            startNextRound()
         }
+    }
+    
+    func startNextRound() {
+        events.getNewEvents()
+        updateEventLabels()
+        
+        nextButton.hidden = true
+        timerLabel.hidden = false
+        
+        startTimer()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

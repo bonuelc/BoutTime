@@ -84,15 +84,22 @@
 		859C10FB1D2894A7002AB549 /* BoutTime */ = {
 			isa = PBXGroup;
 			children = (
-				85F315ED1D2A14A6006099E9 /* splash_screen.png */,
-				859C10FC1D2894A7002AB549 /* AppDelegate.swift */,
-				859C10FE1D2894A7002AB549 /* ViewController.swift */,
-				852244FD1D3428F4002561B7 /* ResultsViewController.swift */,
+				85EBD6E01D3554BD00851132 /* Controller */,
+				85EBD6DF1D3554B100851132 /* Model */,
+				85EBD6DE1D35549700851132 /* Images */,
 				859C11001D2894A7002AB549 /* Main.storyboard */,
+				859C10FC1D2894A7002AB549 /* AppDelegate.swift */,
 				859C11031D2894A7002AB549 /* Assets.xcassets */,
 				859C11051D2894A7002AB549 /* LaunchScreen.storyboard */,
 				859C11081D2894A7002AB549 /* Info.plist */,
-				85C341051D2D9C6F00853B86 /* HistoricalEventModel.swift */,
+			);
+			path = BoutTime;
+			sourceTree = "<group>";
+		};
+		85EBD6DE1D35549700851132 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				85F315ED1D2A14A6006099E9 /* splash_screen.png */,
 				85E243E71D2EAD5C006B6A6A /* next_round_fail.png */,
 				85E243E81D2EAD5C006B6A6A /* next_round_success.png */,
 				85E243E91D2EAD5C006B6A6A /* play_again.png */,
@@ -106,7 +113,24 @@
 				85E243F41D2EAE80006B6A6A /* up_half.png */,
 				85E243FD1D2EB43B006B6A6A /* webview_bar.png */,
 			);
-			path = BoutTime;
+			name = Images;
+			sourceTree = "<group>";
+		};
+		85EBD6DF1D3554B100851132 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				85C341051D2D9C6F00853B86 /* HistoricalEventModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		85EBD6E01D3554BD00851132 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				859C10FE1D2894A7002AB549 /* ViewController.swift */,
+				852244FD1D3428F4002561B7 /* ResultsViewController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

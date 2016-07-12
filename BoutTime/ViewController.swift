@@ -100,6 +100,7 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate {
         if let resultsVC = segue.destinationViewController as? ResultsViewController {
             resultsVC.score = score
             resultsVC.numQuestionsInRound = numQuestionsInRound
+            resultsVC.delegate = self
         }
     }
     

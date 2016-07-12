@@ -12,6 +12,7 @@ class ResultsViewController: UIViewController {
     
     var score: Int!
     var numQuestionsInRound: Int!
+    var delegate: GameType!
     
     @IBOutlet weak var scoreLabel: UILabel!
 

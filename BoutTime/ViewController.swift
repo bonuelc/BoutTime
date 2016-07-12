@@ -57,6 +57,24 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: During rounds
+    
+    func startTimer() {
+        secondsLeft = Int(secondsPerQuestion)
+        tick() // start and show the new timer right away
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.tick), userInfo: nil, repeats: true)
+    }
+    
+    func tick() {
+        let minutes: Int = secondsLeft / 60
+        let seconds: Int = secondsLeft % 60
+        timerLabel.text = "\(minutes):" + String(format: "%02d", seconds)
+        if secondsLeft == 0 {
+            checkAnswer()
+        }
+        secondsLeft -= 1
+    }
+    
     @IBAction func downButtonTapped(sender: UIButton) {
         events.rearrangeEvents(sender.tag, indexB: sender.tag + 1)
         updateEventLabels()
@@ -66,7 +84,47 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate {
         events.rearrangeEvents(sender.tag, indexB: sender.tag - 1)
         updateEventLabels()
     }
+    
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        if motion == .MotionShake {
+            checkAnswer()
+        }
+    }
+    
+    // MARK: After rounds
+    
+    func checkAnswer() {
+        
+        bottomInfoLabel.text = "Tap events to learn more"
+        enableLinkButtons()
+        
+        timer.invalidate()
+        
+        numQuestionsAnswered += 1
+        
+        timerLabel.hidden = true
+        nextButton.hidden = false
+        
+        enableArrowButtons(false)
+        
+        if events.inOrder() {
+            score += 1
+            nextButton.setImage(UIImage(named: "next_round_success.png"), forState: .Normal)
+            nextButton.setImage(UIImage(named: "next_round_success.png"), forState: .Highlighted)
+        } else {
+            nextButton.setImage(UIImage(named: "next_round_fail.png"), forState: .Normal)
+            nextButton.setImage(UIImage(named: "next_round_fail.png"), forState: .Highlighted)
+        }
+    }
 
+    
+    @IBAction func eventLinkTapped(sender: UIButton) {
+        let website = events[sender.tag].website
+        let svc = SFSafariViewController(URL: NSURL(string: website)!)
+        svc.delegate = self
+        presentViewController(svc, animated: true, completion: nil)
+    }
+    
     @IBAction func nextButtonTapped(sender: UIButton) {
         
         bottomInfoLabel.text = "Shake to complete"
@@ -99,60 +157,8 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate {
         }
     }
     
-    func startTimer() {
-        secondsLeft = Int(secondsPerQuestion)
-        tick() // start and show the new timer right away
-        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.tick), userInfo: nil, repeats: true)
-    }
-    
-    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
-        if motion == .MotionShake {
-            checkAnswer()
-        }
-    }
-    
-    func tick() {
-        let minutes: Int = secondsLeft / 60
-        let seconds: Int = secondsLeft % 60
-        timerLabel.text = "\(minutes):" + String(format: "%02d", seconds)
-        if secondsLeft == 0 {
-            checkAnswer()
-        }
-        secondsLeft -= 1
-    }
-    
-    func checkAnswer() {
-        
-        bottomInfoLabel.text = "Tap events to learn more"
-        enableLinkButtons()
-        
-        timer.invalidate()
-        
-        numQuestionsAnswered += 1
-        
-        timerLabel.hidden = true
-        nextButton.hidden = false
-        
-        enableArrowButtons(false)
-        
-        if events.inOrder() {
-            score += 1
-            nextButton.setImage(UIImage(named: "next_round_success.png"), forState: .Normal)
-            nextButton.setImage(UIImage(named: "next_round_success.png"), forState: .Highlighted)
-        } else {
-            nextButton.setImage(UIImage(named: "next_round_fail.png"), forState: .Normal)
-            nextButton.setImage(UIImage(named: "next_round_fail.png"), forState: .Highlighted)
-        }
-    }
-    
-    @IBAction func eventLinkTapped(sender: UIButton) {
-        let website = events[sender.tag].website
-        let svc = SFSafariViewController(URL: NSURL(string: website)!)
-        svc.delegate = self
-        presentViewController(svc, animated: true, completion: nil)
-    }
-    
     // MARK: Helper methods
+    
     func setupArrowImages() {
         downButton0.setImage(UIImage(named: "down_full_selected.png"), forState: .Highlighted)
         downButton1.setImage(UIImage(named: "down_half_selected.png"), forState: .Highlighted)

@@ -154,7 +154,7 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="next_round_success.png"/>
                                 <connections>
-                                    <action selector="nextButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9bd-2D-Axl"/>
+                                    <action selector="nextRoundButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ae1-sT-X24"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -236,7 +236,7 @@
                         <outlet property="eventLinkButton1" destination="ISm-Xb-1fW" id="ZsR-hg-6ko"/>
                         <outlet property="eventLinkButton2" destination="rdn-JB-A2X" id="qIz-3k-VN7"/>
                         <outlet property="eventLinkButton3" destination="k1C-u6-n5j" id="a3c-zb-ytY"/>
-                        <outlet property="nextButton" destination="7yM-Fy-oRv" id="erU-in-BBR"/>
+                        <outlet property="nextRoundButton" destination="7yM-Fy-oRv" id="VHb-l4-kcu"/>
                         <outlet property="timerLabel" destination="rpB-fX-d21" id="4NR-dd-qqa"/>
                         <outlet property="upButton1" destination="oe2-ek-aw8" id="uL0-ME-IhQ"/>
                         <outlet property="upButton2" destination="Oe0-Jq-d4i" id="mCT-VC-nyl"/>

@@ -43,7 +43,7 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate {
     
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var bottomInfoLabel: UILabel!
-    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var nextRoundButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,17 +103,17 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate {
         numQuestionsAnswered += 1
         
         timerLabel.hidden = true
-        nextButton.hidden = false
+        nextRoundButton.hidden = false
         
         enableArrowButtons(false)
         
         if events.inOrder() {
             score += 1
-            nextButton.setImage(UIImage(named: "next_round_success.png"), forState: .Normal)
-            nextButton.setImage(UIImage(named: "next_round_success.png"), forState: .Highlighted)
+            nextRoundButton.setImage(UIImage(named: "next_round_success.png"), forState: .Normal)
+            nextRoundButton.setImage(UIImage(named: "next_round_success.png"), forState: .Highlighted)
         } else {
-            nextButton.setImage(UIImage(named: "next_round_fail.png"), forState: .Normal)
-            nextButton.setImage(UIImage(named: "next_round_fail.png"), forState: .Highlighted)
+            nextRoundButton.setImage(UIImage(named: "next_round_fail.png"), forState: .Normal)
+            nextRoundButton.setImage(UIImage(named: "next_round_fail.png"), forState: .Highlighted)
         }
     }
 
@@ -125,7 +125,7 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate {
         presentViewController(svc, animated: true, completion: nil)
     }
     
-    @IBAction func nextButtonTapped(sender: UIButton) {
+    @IBAction func nextRoundButtonTapped(sender: UIButton) {
         
         bottomInfoLabel.text = "Shake to complete"
         enableLinkButtons(false)
@@ -143,7 +143,7 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate {
         events.getNewEvents()
         updateEventLabels()
         
-        nextButton.hidden = true
+        nextRoundButton.hidden = true
         timerLabel.hidden = false
         
         startTimer()

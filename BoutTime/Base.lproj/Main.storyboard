@@ -232,6 +232,10 @@
                         <outlet property="eventLabel1" destination="JqH-0Q-dsc" id="PVF-Nv-rCQ"/>
                         <outlet property="eventLabel2" destination="gCU-uO-juF" id="G5G-d0-1QN"/>
                         <outlet property="eventLabel3" destination="ANe-nQ-h1J" id="Ibe-qh-P7M"/>
+                        <outlet property="eventLinkButton0" destination="rat-Mb-pk4" id="uze-ua-8rw"/>
+                        <outlet property="eventLinkButton1" destination="ISm-Xb-1fW" id="ZsR-hg-6ko"/>
+                        <outlet property="eventLinkButton2" destination="rdn-JB-A2X" id="qIz-3k-VN7"/>
+                        <outlet property="eventLinkButton3" destination="k1C-u6-n5j" id="a3c-zb-ytY"/>
                         <outlet property="nextButton" destination="7yM-Fy-oRv" id="erU-in-BBR"/>
                         <outlet property="timerLabel" destination="rpB-fX-d21" id="4NR-dd-qqa"/>
                         <outlet property="upButton1" destination="oe2-ek-aw8" id="uL0-ME-IhQ"/>

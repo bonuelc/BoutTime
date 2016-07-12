@@ -25,6 +25,11 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate {
     @IBOutlet weak var eventLabel2: UILabel!
     @IBOutlet weak var eventLabel3: UILabel!
     
+    @IBOutlet weak var eventLinkButton0: UIButton!
+    @IBOutlet weak var eventLinkButton1: UIButton!
+    @IBOutlet weak var eventLinkButton2: UIButton!
+    @IBOutlet weak var eventLinkButton3: UIButton!
+    
     @IBOutlet weak var downButton0: UIButton!
     @IBOutlet weak var downButton1: UIButton!
     @IBOutlet weak var downButton2: UIButton!
@@ -71,6 +76,7 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate {
     @IBAction func nextButtonTapped(sender: UIButton) {
         
         bottomInfoLabel.text = "Shake to complete"
+        enableLinkButtons(false)
         
         enableArrowButtons()
         
@@ -130,6 +136,7 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate {
     func checkAnswer() {
         
         bottomInfoLabel.text = "Tap events to learn more"
+        enableLinkButtons()
         
         timer.invalidate()
         
@@ -157,6 +164,13 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate {
         upButton1.enabled = enable
         upButton2.enabled = enable
         upButton3.enabled = enable
+    }
+    
+    func enableLinkButtons(enable: Bool = true) {
+        eventLinkButton0.enabled = enable
+        eventLinkButton1.enabled = enable
+        eventLinkButton2.enabled = enable
+        eventLinkButton3.enabled = enable
     }
     
     func setupArrowImages() {
